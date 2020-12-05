@@ -1,18 +1,17 @@
-import {StatusBar} from 'expo-status-bar';
 import React, {Component} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {Text, View} from 'react-native';
 
 import {createStore} from "redux";
 import {Provider} from "react-redux";
 import Page from "./Page";
 
 const initialState = {
-    durum: 'İlk Değer'
+    durum: 'Ersin Kalafat - Akinon Javascript Challange'
 };
 
 const reducer = (state = initialState, action) => {
     if (action.type === 'setDurum') {
-        return Object.assign({}, state, {durum: 'yenilenenDeğer'});
+        return Object.assign({}, state, {durum: 'İşlem alındı : ' + action.payload});
     }
     return state;
 };
@@ -30,12 +29,3 @@ export default class App extends Component {
         );
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-});

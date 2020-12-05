@@ -1,24 +1,35 @@
-import {StatusBar} from 'expo-status-bar';
 import React, {Component} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {Text, View, TouchableOpacity} from 'react-native';
+var Styles = require('./styles');
 
+import {connect} from 'react-redux';
 
-export default class Page extends Component {
+class Page extends Component {
     render() {
         return (
-            <View style={styles.container}>
+            <View style={Styles.container}>
                 <Text>Merhaba Akinon!</Text>
-                <StatusBar style="auto"/>
+                <Text>{this.props.durum}</Text>
+                <TouchableOpacity style={Styles.button} onPress={() => this.props.degistir()  } >
+                    <Text style={Styles.button_text}> Slider Başlat </Text>
+                </TouchableOpacity>
             </View>
         );
     }
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-});
+const mapStateToProps = (state) => {
+    return {
+        durum : state.durum
+    }
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        degistir : () => dispatch({
+            type:'setDurum', payload:'Slider Başlatıldı'
+        })
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Page);
