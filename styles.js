@@ -7,7 +7,6 @@ var {StyleSheet} = React;
 module.exports = StyleSheet.create({
 
     container: {
-        //...StyleSheet.absoluteFillObject,
         flex: 1,
         backgroundColor: '#fff',
         alignItems: 'center',
