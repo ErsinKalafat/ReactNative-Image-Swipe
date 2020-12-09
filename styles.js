@@ -7,6 +7,7 @@ var {StyleSheet} = React;
 module.exports = StyleSheet.create({
 
     container: {
+        //...StyleSheet.absoluteFillObject,
         flex: 1,
         backgroundColor: '#fff',
         alignItems: 'center',
@@ -22,11 +23,10 @@ module.exports = StyleSheet.create({
         color: '#662517',
         backgroundColor: '#fff',
         alignItems: 'center',
-        width: '50%'
+        width: '70%'
     },
 
     button_text : {
         fontSize : 20
-    }
-
+    },
 });
